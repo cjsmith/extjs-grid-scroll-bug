@@ -17,10 +17,11 @@ Ext.onReady(function() {
     // Create the Data Store.
     // Because it is buffered, the automatic load will be directed
     // through the prefetch mechanism, and be read through the page cache
-    var store = Ext.create('Ext.data.Store', {
+    var store = Ext.create('Ext.data.BufferedStore', {
         model: 'Row',
         buffered: true,
-        pageSize: 200,
+        leadingBufferZone: 300,
+        pageSize: 100,
         proxy: {
             type: 'rest',
             url: 'list',
